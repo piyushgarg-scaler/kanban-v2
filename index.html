@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <link rel="stylesheet" href="style.css" />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Kanban</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="input-container">
+        <input type="text" placeholder="Type your task" id="todo-input" />
+        <button id="create-todo-btn">Create</button>
+      </div>
+      <div id="board-container" class="board-container">
+        <!-- Todo Board -->
+        <div class="board todo-board" id="todo-board">
+          <h3>Todo</h3>
+
+          <div draggable="true" class="item">
+            <p>Make them Moveable</p>
+          </div>
+        </div>
+
+        <!-- Progress Board -->
+        <div class="board progress-board" id="progress-board">
+          <h3>In Progress</h3>
+        </div>
+
+        <!-- Complete Board -->
+        <div class="board complete-board" id="complete-board">
+          <h3>Done</h3>
+          <div draggable="true" class="item">
+            <p>Make Items Draggable</p>
+          </div>
+          <div draggable="true" class="item">
+            <p>Add logic to create new task items</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="insert.js"></script>
+    <script src="board.js"></script>
+  </body>
+</html>
