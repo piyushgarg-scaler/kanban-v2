@@ -39,8 +39,7 @@
 .circle {
   width: 16px;
   height: 16px;
-  color: red;
-  border: 2px solid purple;
+  border: 3px solid rgb(18, 180, 15);
   border-radius: 50%;
 }
 
@@ -58,7 +57,7 @@
 
 .board {
   position: relative;
-  border: 1px solid lightgray;
+  border: 1px solid rgb(109, 109, 109);
   border-radius: 10px;
   padding: 5px;
   height: 80vh;
@@ -67,16 +66,31 @@
   overflow: hidden;
 }
 
-#tasks-container {
+.tasks-container {
   margin-top: 14px;
+  height: 75%;
+  overflow: auto;
 }
 
+.tasks-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(82, 82, 82, 0.3);
+  background-color: #f5f5f5;
+}
+
+.tasks-container::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+
+.tasks-container::-webkit-scrollbar-thumb {
+  background-color: #6c6c6c;
+}
 .task {
   border: 1px solid lightgray;
   border-radius: 8px;
   padding: 10px 5px;
   font-size: 14px;
-  cursor:grab;
+  cursor: grab;
   margin: 0px 4px 8px 4px;
   background-color: rgb(39, 41, 44);
 }
@@ -94,26 +108,39 @@
   color: gold;
 }
 
-#add-task-div {
+.add-task-div {
   position: absolute;
   bottom: 6px;
   width: 100%;
 }
 
-#add-task-btn {
+.add-task-btn {
   cursor: pointer;
   border: none;
   background-color: inherit;
   padding: 8px;
+  color: rgb(147, 147, 147);
   width: 96%;
   text-align: left;
 }
 
-#add-task-btn:hover {
-  background-color: grey;
+.add-task-btn:hover {
+  background-color: rgb(43, 43, 43);
   border-radius: 4px;
 }
 
-#add-task-input {
+.add-task-input {
   display: none;
+  outline: none;
+  width: 87%;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  background-color: rgb(41, 41, 41);
+  border-radius: 10px;
+  color: white;
+}
+
+.add-task-input:focus {
+  border: 2px solid rgb(21, 21, 70);
 }

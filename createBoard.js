@@ -1,5 +1,21 @@
 const boardContainer = document.getElementById('board-container')
 
+const createTaskEl = el => {
+  if (el.trim()) {
+    const taskDiv = document.createElement('div')
+    taskDiv.classList.add('task')
+    taskDiv.setAttribute('draggable', 'true')
+
+    addDraggable(taskDiv)
+
+    const taskDetail = document.createElement('p')
+    taskDetail.append(document.createTextNode(el))
+    taskDiv.appendChild(taskDetail)
+
+    return taskDiv
+  }
+}
+
 datas.forEach(board => {
   const newBoard = document.createElement('div')
   newBoard.classList.add('board', `${board.class}`)
@@ -16,6 +32,7 @@ datas.forEach(board => {
 
   const circle = document.createElement('div')
   circle.classList.add('circle')
+  circle.style.border = `2px solid ${board.theme}`
   circleTitleDiv.appendChild(circle)
 
   const boardTitle = document.createElement('h3')
@@ -34,36 +51,26 @@ datas.forEach(board => {
   titleDiv.appendChild(description)
 
   const tasksContainer = document.createElement('div')
-  tasksContainer.setAttribute('id', 'tasks-container')
+  tasksContainer.classList.add('tasks-container')
+  newBoard.appendChild(tasksContainer)
 
-  const taskDiv = document.createElement('div')
-  taskDiv.classList.add('task')
-  taskDiv.setAttribute('draggable', 'true')
+  board.tasks.forEach(task => {
+    const newTask = createTaskEl(task)
+    tasksContainer.appendChild(newTask)
+  })
 
-  addDraggable(taskDiv)
+  const addTaskDiv = document.createElement('div')
+  addTaskDiv.classList.add('add-task-div')
+  newBoard.appendChild(addTaskDiv)
+
+  const addTaskBtn = document.createElement('button')
+  addTaskBtn.classList.add('add-task-btn')
+  addTaskBtn.append(document.createTextNode('+ Add item'))
+  addTaskDiv.appendChild(addTaskBtn)
+
+  const addTaskInput = document.createElement('input')
+  addTaskInput.type = 'text'
+  addTaskInput.placeholder = 'Enter task details...'
+  addTaskInput.classList.add('add-task-input')
+  addTaskDiv.appendChild(addTaskInput)
 })
-
-// <div class='board todo' id='todo'>
-
-//   <div class='title-div'>
-//     <div class='circle-title'>
-//       <div class='circle'></div>
-//       <h3 class='title'>Todo</h3>
-//       <p class="count">0</p>
-
-//     </div>
-//     <p class='description'>This is description</p>
-//   </div>
-
-//   <div id='tasks-container'>
-//     <div draggable='true' class='task'>
-//       <p>Make them Moveable</p>
-//     </div>
-//   </div>
-
-//   <div id='add-task-div'>
-//     <button id='add-task-btn'>+ Add item</button>
-
-//     <input id='add-task-input' type='text' placeholder='Enter task details..' />
-//   </div>
-// </div>
