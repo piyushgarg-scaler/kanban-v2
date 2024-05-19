@@ -5,7 +5,7 @@ const themes = [
   'rgb(13, 129, 178)',
   'rgb(128, 0, 128)'
 ]
-
+// 'Task 1', 'Task 2', 'Task 3'
 const boardDatas = [
   {
     id: Date.now(),

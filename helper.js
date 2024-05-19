@@ -10,13 +10,17 @@ const addDraggable = el => {
   }
 }
 
+const updateCounter = (boardEl, board) => {
+  const count = boardEl.querySelector('.count')
+  count.innerText = board.tasks.length
+}
+
 const appendNewTaskData = (value, boardEl) => {
   const boardId = boardEl.className.split(' ')[0]
-  const count = boardEl.querySelector('.count')
   datas.forEach(board => {
     if (board.class === boardId) {
       board.tasks.push(value)
-      count.innerText = board.tasks.length
+      updateCounter(boardEl, board)
     }
   })
 }

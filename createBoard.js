@@ -9,6 +9,7 @@ const createTaskEl = el => {
     addDraggable(taskDiv)
 
     const taskDetail = document.createElement('p')
+    taskDetail.classList.add('task-details')
     taskDetail.append(document.createTextNode(el))
     taskDiv.appendChild(taskDetail)
 
