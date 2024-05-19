@@ -1,21 +1,15 @@
-const items = document.querySelectorAll('.item')
+const items = document.querySelectorAll('.task')
 const boards = document.querySelectorAll('.board')
 
-items.forEach(item => {
-    item.addEventListener('dragstart', e => {
-        item.classList.add('is-dragging')
-    })
 
-    item.addEventListener('dragend', e => {
-        item.classList.remove('is-dragging')
-    })
+
+items.forEach(item => {
+  addDraggable(item)
 })
 
-
-
 boards.forEach(board => {
-    board.addEventListener('dragover', () => {
-        const taskEl = document.querySelector('.is-dragging')
-        board.appendChild(taskEl)
-    })
+  board.addEventListener('dragover', () => {
+    const taskEl = document.querySelector('.is-dragging')
+    board.appendChild(taskEl)
+  })
 })

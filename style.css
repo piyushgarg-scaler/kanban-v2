@@ -1,19 +1,15 @@
 * {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
   padding: 0px;
+  background-color: rgb(21, 24, 28);
+  color: white;
 }
 
 .container {
   padding: 20px;
-}
-
-.input-container {
-  margin: 10px 0px;
-}
-
-.input-container input {
-  padding: 8px 10px;
+  display: flex;
+  gap: 10px;
 }
 
 .board-container {
@@ -21,31 +17,103 @@
   gap: 10px;
 }
 
+.title-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.circle-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0px;
+  height: 32px;
+}
+
+.description {
+  margin: 0px;
+  padding: 0px;
+  color: rgb(147, 147, 147);
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  color: red;
+  border: 2px solid purple;
+  border-radius: 50%;
+}
+
+.count {
+  background-color: grey;
+  border-radius: 50%;
+
+  width: 20px;
+  height: 20px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 .board {
+  position: relative;
   border: 1px solid lightgray;
   border-radius: 10px;
   padding: 5px;
   height: 80vh;
-  width: 200px;
+  width: 250px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  overflow: hidden;
 }
 
-.board h3 {
-  text-align: center;
-  margin-bottom: 15px;
+#tasks-container {
+  margin-top: 14px;
 }
 
-.item {
+.task {
   border: 1px solid lightgray;
-  border-radius: 10px;
-  padding: 5px;
+  border-radius: 8px;
+  padding: 10px 5px;
   font-size: 14px;
-  cursor: pointer;
-  margin-bottom: 8px;
+  cursor:grab;
+  margin: 0px 4px 8px 4px;
+  background-color: rgb(39, 41, 44);
+}
+
+.task p {
+  background-color: rgb(39, 41, 44);
 }
 
 .is-dragging {
-  border: 4px dashed lightgray;
-  background-color: black;
-  color: white;
+  background-color: rgb(4, 10, 77);
+}
+
+.is-dragging P {
+  background-color: rgb(4, 10, 77);
+  color: gold;
+}
+
+#add-task-div {
+  position: absolute;
+  bottom: 6px;
+  width: 100%;
+}
+
+#add-task-btn {
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  padding: 8px;
+  width: 96%;
+  text-align: left;
+}
+
+#add-task-btn:hover {
+  background-color: grey;
+  border-radius: 4px;
+}
+
+#add-task-input {
+  display: none;
 }
