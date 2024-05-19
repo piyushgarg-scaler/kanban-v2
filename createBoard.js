@@ -1,12 +1,13 @@
 const boardContainer = document.getElementById('board-container')
 
+// To create the task element and attach the draggable function,
 const createTaskEl = el => {
   if (el.trim()) {
     const taskDiv = document.createElement('div')
     taskDiv.classList.add('task')
     taskDiv.setAttribute('draggable', 'true')
 
-    addDraggable(taskDiv)
+    addDraggable(taskDiv) // #Goto ./helper.js line --> 4
 
     const taskDetail = document.createElement('p')
     taskDetail.classList.add('task-details')
@@ -17,6 +18,8 @@ const createTaskEl = el => {
   }
 }
 
+// To create the whole board.
+// ## Refer HTML for better understanding of this function.
 const createBoard = board => {
   const newBoard = document.createElement('div')
   newBoard.classList.add(`${board.class}`, 'board')
@@ -56,7 +59,7 @@ const createBoard = board => {
   newBoard.appendChild(tasksContainer)
 
   board.tasks.forEach(task => {
-    const newTask = createTaskEl(task)
+    const newTask = createTaskEl(task) // #Goto line --> 3
     tasksContainer.appendChild(newTask)
   })
 
@@ -76,6 +79,7 @@ const createBoard = board => {
   addTaskDiv.appendChild(addTaskInput)
 }
 
+// Looping through the boardDatas.
 datas.forEach(data => {
-  createBoard(data)
+  createBoard(data) // #Goto line -->21
 })
