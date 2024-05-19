@@ -8,23 +8,23 @@ const themes = [
 
 const boardDatas = [
   {
-    id: 1,
+    id: Date.now(),
     name: 'Todo',
     class: 'todo',
     theme: themes[0],
     description: "This item hasn't been started",
-    tasks: ['task1', 'task2', 'task3']
+    tasks: []
   },
   {
-    id: 2,
+    id: Date.now(),
     name: 'In Progress',
     class: 'in-progress',
     theme: themes[1],
     description: 'This is actively being worked on',
-    tasks: ['task4']
+    tasks: []
   },
   {
-    id: 3,
+    id: Date.now(),
     name: 'Done',
     class: 'done',
     theme: themes[2],
