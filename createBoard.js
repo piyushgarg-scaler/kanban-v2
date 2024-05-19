@@ -21,6 +21,7 @@ const createTaskEl = el => {
 // To create the whole board.
 // ## Refer HTML for better understanding of this function.
 const createBoard = board => {
+  // console.log('BOARD', board)
   const newBoard = document.createElement('div')
   newBoard.classList.add(`${board.class}`, 'board')
   newBoard.setAttribute('id', `${board.class}`)

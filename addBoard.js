@@ -1,6 +1,6 @@
-const addBoardDiv = document.querySelector('add-board-container')
+const addBoardBtn = document.querySelector('.add-board-btn')
 
 // To Add new Boards
-addBoardDiv.addEventListener('click', e => {
+addBoardBtn.addEventListener('click', e => {
   alert('Comming soon...')
 })
