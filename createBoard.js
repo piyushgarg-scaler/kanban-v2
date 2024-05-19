@@ -16,9 +16,9 @@ const createTaskEl = el => {
   }
 }
 
-datas.forEach(board => {
+const createBoard = board => {
   const newBoard = document.createElement('div')
-  newBoard.classList.add('board', `${board.class}`)
+  newBoard.classList.add(`${board.class}`, 'board')
   newBoard.setAttribute('id', `${board.class}`)
   boardContainer.appendChild(newBoard)
 
@@ -73,4 +73,8 @@ datas.forEach(board => {
   addTaskInput.placeholder = 'Enter task details...'
   addTaskInput.classList.add('add-task-input')
   addTaskDiv.appendChild(addTaskInput)
+}
+
+datas.forEach(data => {
+  createBoard(data)
 })

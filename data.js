@@ -34,7 +34,7 @@ const boardDatas = [
 ]
 
 const setLocalStorage = datas => {
-  localStorage.setItem('data', JSON.stringify(datas))
+  localStorage.setItem('datas', JSON.stringify(datas))
   return boardDatas
 }
 
