@@ -5,6 +5,6 @@ window.addEventListener('dblclick', e => {
   }
   const boardEl = parent.parentElement.parentElement
 
-  deleteTask(parent, boardEl)
+  alterBoardData(parent, boardEl)
   parent.remove()
 })

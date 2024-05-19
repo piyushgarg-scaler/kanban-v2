@@ -21,8 +21,6 @@ addTaskBtns.forEach(btn => {
   })
 })
 
-
-
 addTaskInputs.forEach(input => {
   input.addEventListener('keydown', e => {
     if (e.key === 'Enter') {
@@ -30,7 +28,7 @@ addTaskInputs.forEach(input => {
       const newTask = createTaskEl(value)
       const board = e.target.parentElement.parentElement
 
-      appendNewTaskData(value, board)
+      appendNewTaskData(newTask, board)
 
       const taskDiv = e.target.parentElement.previousElementSibling
       taskDiv.appendChild(newTask)
