@@ -7,8 +7,8 @@ const deleteTask = (el, boardEl) => {
     if (board.class === boardId) {
       const taskIdx = board.tasks.indexOf(value)
       board.tasks.splice(taskIdx, 1)
+      updateTaskCount(boardEl, board)
       setLocalStorage(datas)
-      updateCounter(boardEl, board)
     }
   })
 }

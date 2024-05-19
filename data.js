@@ -13,7 +13,7 @@ const boardDatas = [
     class: 'todo',
     theme: themes[0],
     description: "This item hasn't been started",
-    tasks: []
+    tasks: ['Task 1', 'Task 2', 'Task 3']
   },
   {
     id: Date.now(),
