@@ -21,16 +21,7 @@ addTaskBtns.forEach(btn => {
   })
 })
 
-const appendNewTaskData = (value, boardEl) => {
-  const boardId = boardEl.className.split(' ')[0]
-  const count = boardEl.querySelector('.count')
-  datas.forEach(board => {
-    if (board.class === boardId) {
-      board.tasks.push(value)
-      count.innerText = board.tasks.length
-    }
-  })
-}
+
 
 addTaskInputs.forEach(input => {
   input.addEventListener('keydown', e => {
