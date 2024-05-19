@@ -16,7 +16,7 @@ const boardDatas = [
     class: 'todo',
     theme: themes[0],
     description: "This item hasn't been started",
-    tasks: ['Task 1', 'Task 2', 'Task 3']
+    tasks: []
   },
   {
     id: Date.now(),
@@ -45,6 +45,6 @@ const setLocalStorage = datas => {
 // Checking for local storage, if present we fetch the data from there, else we render the DOM with the boardDatas
 const datas = localStorage.getItem('datas')
   ? JSON.parse(localStorage.getItem('datas'))
-  : setLocalStorage(boardDatas) // #Goto line --> 39 
+  : setLocalStorage(boardDatas) // #Goto line --> 39
 
 console.log('Datas', datas)
