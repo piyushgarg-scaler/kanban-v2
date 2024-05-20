@@ -2,6 +2,7 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="modelStyle.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kanban</title>
@@ -40,6 +41,47 @@
       </div>
       <div class="add-board-container">
         <button class="add-board-btn">+</button>
+      </div>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add board</h2>
+          <span class="close" id="close">&times;</span>
+        </div>
+
+        <div class="modal-body">
+          <!-- <label for="board-name">Board Name</label> -->
+          <input
+            type="text"
+            id="board-name"
+            name="board-name"
+            placeholder="Enter the board name"
+          />
+
+          <input
+            type="text"
+            id="board-description"
+            name="board-description"
+            placeholder="Give description"
+            required
+          />
+
+          <label id="theme-label" for="board-theme"
+            >Choose a theme:
+            <!-- <input
+              type="color"
+              id="board-theme"
+              name="board-theme"
+              placeholder="Choose theme"
+          /> -->
+          </label>
+
+          <button class="submit-board-details" id="submit-board-details">
+            Add
+          </button>
+        </div>
       </div>
     </div>
 

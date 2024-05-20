@@ -47,12 +47,14 @@ const alterBoardData = (el, boardEl, operation = 0) => {
   datas.forEach(board => {
     if (board.class === boardId) {
       if (!operation) {
-        console.log('DELETE')
+        // console.log('DELETE')
 
         const taskIdx = board.tasks.indexOf(value)
         board.tasks.splice(taskIdx, 1)
         updateTaskCount(boardEl, board)
       } else if (operation === 1) {
+        // console.log('APPEND');
+
         board.tasks.push(value)
         updateTaskCount(boardEl, board)
       } else {

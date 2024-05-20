@@ -3,7 +3,7 @@ const boards = document.querySelectorAll('.board')
 
 // Attaching each draggable funtion to each of the tasks.
 items.forEach(item => {
-  addDraggable(item)
+  addDraggable(item) // #Goto ./helper.js line --> 4
 })
 
 // Attaching drag over listener to each of the boards to capture the dragged task.

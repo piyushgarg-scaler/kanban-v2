@@ -78,6 +78,8 @@ const createBoard = board => {
   addTaskInput.placeholder = 'Enter task details...'
   addTaskInput.classList.add('add-task-input')
   addTaskDiv.appendChild(addTaskInput)
+
+  return newBoard
 }
 
 // Looping through the boardDatas.
