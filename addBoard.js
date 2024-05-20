@@ -64,6 +64,10 @@ submitBoardDetailsBtn.addEventListener('click', e => {
     addTaskBtnFeature(addTaskBtn)
     addTaskInputFeature(addTaskInput)
 
+    modal.style.display = 'none'
+    boardNameInput.value = ''
+    descriptionInput.value = ''
+    selectedTheme.classList.remove('theme-active')
     // console.log(newBoard)
   } else {
     alert('Please enter all the fields.')

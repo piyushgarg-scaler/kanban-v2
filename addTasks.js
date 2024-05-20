@@ -13,7 +13,6 @@ const resetBtns = () => {
 
 // Attaching listener to the add items buttons to toggle between the add item button and input.
 const addTaskBtnFeature = btn => {
-  // console.log(btn)
   btn.addEventListener('click', e => {
     resetBtns()
     btn.style.display = 'none'
