@@ -4,7 +4,7 @@ let changeData = undefined
 // To add the draggable function the .task divs.
 const addDraggable = el => {
   if (el) {
-    // While dragging...
+    // When dragged...
     el.addEventListener('dragstart', e => {
       el.classList.add('is-dragging')
       const parent = el.parentElement.parentElement
