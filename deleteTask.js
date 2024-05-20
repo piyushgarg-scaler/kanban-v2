@@ -7,6 +7,8 @@ window.addEventListener('dblclick', e => {
   }
   const boardEl = parent.parentElement.parentElement
 
-  alterBoardData(parent, boardEl) // #Goto ./helper.js line --> 40
-  parent.remove()
+  if (parent.className === 'task') {
+    alterBoardData(parent, boardEl) // #Goto ./helper.js line --> 40
+    parent.remove()
+  }
 })
