@@ -18,6 +18,6 @@ window.addEventListener('dblclick', e => {
   }
 })
 
-window.addEventListener("click", (e) => {
-  console.log();
+window.addEventListener('click', e => {
+  console.log()
 })

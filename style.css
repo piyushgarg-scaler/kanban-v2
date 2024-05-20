@@ -171,3 +171,8 @@
   color: white;
   font-size: 14px;
 }
+
+.dummy {
+  margin-left: 22px;
+  background-color: transparent;
+}
