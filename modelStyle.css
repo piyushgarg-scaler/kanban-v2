@@ -23,7 +23,7 @@
 }
 
 .modal {
-  /* display: none; */
+  display: none;
   position: fixed;
   z-index: 1;
   left: 0;
@@ -104,10 +104,6 @@
 
 .circle-theme {
   cursor: pointer;
-}
-
-.circle-theme:hover {
-  background-color: rgb(56, 56, 56);
 }
 
 .theme-active {

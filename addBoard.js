@@ -15,11 +15,57 @@ themes.forEach(color => {
 
   colorDiv.addEventListener('click', e => {
     colorDiv.classList.toggle('theme-active')
+    const allTheme = document.querySelectorAll('.circle-theme')
+
+    allTheme.forEach(circle => {
+      if (circle !== e.target) {
+        circle.classList.remove('theme-active')
+      } else {
+        circle.classList.add('theme-active')
+      }
+    })
   })
 })
 
 // To Add new Boards
 addBoardBtn.addEventListener('click', e => {
-  //   alert('Comming soon...')
   modal.style.display = 'block'
+})
+
+modalCloseBtn.addEventListener('click', e => {
+  modal.style.display = 'none'
+})
+
+submitBoardDetailsBtn.addEventListener('click', e => {
+  const bName = boardNameInput.value
+  const bclass = bName.toLowerCase().replace(/\s+/g, '-')
+  const desc = descriptionInput.value
+  const selectedTheme = themeLabel.querySelector('.theme-active')
+  const themeColor =
+    selectedTheme && selectedTheme.style.border.split(' ').slice(2).join('')
+
+  if (bName.trim() && desc.trim() && themeColor.trim()) {
+    const newBoardData = {
+      id: Date.now(),
+      name: bName,
+      class: bclass,
+      theme: themeColor,
+      description: desc,
+      tasks: []
+    }
+    datas.push(newBoardData)
+    setLocalStorage(datas)
+
+    const newBoard = createBoard(newBoardData)
+    const addTaskBtn = newBoard.querySelector('.add-task-btn')
+    const addTaskInput = newBoard.querySelector('.add-task-input')
+
+    addDragOver(newBoard)
+    addTaskBtnFeature(addTaskBtn)
+    addTaskInputFeature(addTaskInput)
+
+    // console.log(newBoard)
+  } else {
+    alert('Please enter all the fields.')
+  }
 })

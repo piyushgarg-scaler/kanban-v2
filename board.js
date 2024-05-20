@@ -6,11 +6,15 @@ items.forEach(item => {
   addDraggable(item) // #Goto ./helper.js line --> 4
 })
 
-// Attaching drag over listener to each of the boards to capture the dragged task.
-boards.forEach(board => {
+const addDragOver = board => {
   board.addEventListener('dragover', () => {
     const taskEl = document.querySelector('.is-dragging')
     const taskConatainer = board.querySelector('.tasks-container')
     taskConatainer.appendChild(taskEl)
   })
+}
+
+// Attaching drag over listener to each of the boards to capture the dragged task.
+boards.forEach(board => {
+  addDragOver(board)
 })

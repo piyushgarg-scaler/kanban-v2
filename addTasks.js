@@ -12,7 +12,8 @@ const resetBtns = () => {
 }
 
 // Attaching listener to the add items buttons to toggle between the add item button and input.
-addTaskBtns.forEach(btn => {
+const addTaskBtnFeature = btn => {
+  // console.log(btn)
   btn.addEventListener('click', e => {
     resetBtns()
     btn.style.display = 'none'
@@ -21,10 +22,14 @@ addTaskBtns.forEach(btn => {
     input.style.display = 'block'
     input.focus()
   })
+}
+
+addTaskBtns.forEach(btn => {
+  addTaskBtnFeature(btn)
 })
 
 // Getting the value from the input and creating new element and updating the boardDatasand local storage.
-addTaskInputs.forEach(input => {
+const addTaskInputFeature = input => {
   input.addEventListener('keydown', e => {
     // You can get the value from the input thorugh "Enter" key
     if (e.key === 'Enter') {
@@ -47,4 +52,8 @@ addTaskInputs.forEach(input => {
       e.target.previousElementSibling.style.display = 'block'
     }
   })
+}
+
+addTaskInputs.forEach(input => {
+  addTaskInputFeature(input)
 })
