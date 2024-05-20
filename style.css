@@ -64,7 +64,7 @@
   border-radius: 10px;
   padding: 5px;
   height: 80vh;
-  width: 250px;
+  width: 300px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   overflow: hidden;
 }
@@ -147,4 +147,27 @@
 
 .add-task-input:focus {
   border: 2px solid rgb(21, 21, 70);
+}
+
+.search {
+  margin-left: 20px;
+  width: 100%;
+}
+
+#search-input {
+  width: 500px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: 1px solid rgb(115, 174, 227);
+}
+
+#search-input:focus {
+  outline: 1px solid rgb(33, 119, 195);
+}
+
+#search-input::placeholder {
+  font-weight: 700;
+  color: white;
+  font-size: 14px;
 }

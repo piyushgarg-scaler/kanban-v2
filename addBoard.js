@@ -86,8 +86,8 @@ submitBoardDetailsBtn.addEventListener('click', e => {
     const addTaskInput = newBoard.querySelector('.add-task-input')
 
     addDragOver(newBoard) // #Goto ./helper.js line --> 4
-    addTaskBtnFeature(addTaskBtn) // #Goto ./addTasks.js line --> 14
-    addTaskInputFeature(addTaskInput) // #Goto ./addTasks.js line --> 30
+    addTaskBtnFeature(addTaskBtn) // #Goto ./addTasks.js line --> 17
+    addTaskInputFeature(addTaskInput) // #Goto ./addTasks.js line --> 33
 
     modal.style.display = 'none'
     boardNameInput.value = ''

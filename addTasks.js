@@ -3,18 +3,21 @@ const addTaskInputs = document.querySelectorAll('.add-task-input')
 const addTaskDivs = document.querySelectorAll('.add-task-div')
 
 // Resetting the styles for the inputs and buttons.
-const resetBtns = () => {
-  addTaskBtns.forEach(btn => {
-    btn.style.display = 'block'
-    btn.nextElementSibling.style.display = 'none'
-    btn.nextElementSibling.value = ''
+const resetBtns = currBtn => {
+  const Btns = document.querySelectorAll('.add-task-btn')
+  Btns.forEach(btn => {
+    if (btn !== currBtn) {
+      btn.style.display = 'block'
+      btn.nextElementSibling.style.display = 'none'
+      btn.nextElementSibling.value = ''
+    }
   })
 }
 
 // Attaching listener to the add items buttons to toggle between the add item button and input.
 const addTaskBtnFeature = btn => {
   btn.addEventListener('click', e => {
-    resetBtns() // #Goto line --> 5
+    resetBtns(btn) // #Goto line --> 5
     btn.style.display = 'none'
 
     const input = btn.nextElementSibling
@@ -24,7 +27,7 @@ const addTaskBtnFeature = btn => {
 }
 
 addTaskBtns.forEach(btn => {
-  addTaskBtnFeature(btn) // #Goto line --> 14
+  addTaskBtnFeature(btn) // #Goto line --> 17
 })
 
 // Getting the value from the input and creating new element and updating the boardDatasand local storage.
@@ -54,5 +57,5 @@ const addTaskInputFeature = input => {
 }
 
 addTaskInputs.forEach(input => {
-  addTaskInputFeature(input) // #Goto line --> 30
+  addTaskInputFeature(input) // #Goto line --> 33
 })
