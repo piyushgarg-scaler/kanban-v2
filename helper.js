@@ -13,7 +13,7 @@ const addDraggable = el => {
       // Deleting the current task from the data
       if (!changeData) {
         changeData = el
-        alterBoardData(el, parent) // #Goto line --> 38
+        alterBoardData(el, parent) // #Goto line --> 40
       }
     })
 
@@ -24,7 +24,7 @@ const addDraggable = el => {
 
       // Adding the current task to the data
       if (changeData !== undefined) {
-        alterBoardData(changeData, parent, 1) // #Goto line --> 38
+        alterBoardData(changeData, parent, 1) // #Goto line --> 40
         changeData = undefined
       }
     })

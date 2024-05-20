@@ -46,5 +46,3 @@ const setLocalStorage = datas => {
 const datas = localStorage.getItem('datas')
   ? JSON.parse(localStorage.getItem('datas'))
   : setLocalStorage(boardDatas) // #Goto line --> 39
-
-// console.log('Datas', datas) 

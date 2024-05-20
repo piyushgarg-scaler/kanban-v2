@@ -14,7 +14,7 @@ const resetBtns = () => {
 // Attaching listener to the add items buttons to toggle between the add item button and input.
 const addTaskBtnFeature = btn => {
   btn.addEventListener('click', e => {
-    resetBtns()
+    resetBtns() // #Goto line --> 5
     btn.style.display = 'none'
 
     const input = btn.nextElementSibling
@@ -24,7 +24,7 @@ const addTaskBtnFeature = btn => {
 }
 
 addTaskBtns.forEach(btn => {
-  addTaskBtnFeature(btn)
+  addTaskBtnFeature(btn) // #Goto line --> 14
 })
 
 // Getting the value from the input and creating new element and updating the boardDatasand local storage.
@@ -54,5 +54,5 @@ const addTaskInputFeature = input => {
 }
 
 addTaskInputs.forEach(input => {
-  addTaskInputFeature(input)
+  addTaskInputFeature(input) // #Goto line --> 30
 })

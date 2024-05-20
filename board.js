@@ -16,5 +16,5 @@ const addDragOver = board => {
 
 // Attaching drag over listener to each of the boards to capture the dragged task.
 boards.forEach(board => {
-  addDragOver(board)
+  addDragOver(board) // #Goto line --> 9
 })

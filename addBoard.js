@@ -7,6 +7,7 @@ const themeInput = document.getElementById('board-theme')
 const submitBoardDetailsBtn = document.getElementById('submit-board-details')
 const themeLabel = document.getElementById('theme-label')
 
+// Getting themes from ./data.js and creating a Div for selecting board theme
 themes.forEach(color => {
   const colorDiv = document.createElement('div')
   colorDiv.style.border = `3px solid ${color}`
@@ -17,6 +18,7 @@ themes.forEach(color => {
     colorDiv.classList.toggle('theme-active')
     const allTheme = document.querySelectorAll('.circle-theme')
 
+    // Adding extra class for the selected theme.
     allTheme.forEach(circle => {
       if (circle !== e.target) {
         circle.classList.remove('theme-active')
@@ -27,22 +29,27 @@ themes.forEach(color => {
   })
 })
 
-// To Add new Boards
+// To display the modal
 addBoardBtn.addEventListener('click', e => {
   modal.style.display = 'block'
 })
 
+// To close the model
 modalCloseBtn.addEventListener('click', e => {
   modal.style.display = 'none'
 })
 
+// After submitting the details...
+// 1. Fetching all the details, 2. validating, 2.1. creating a newdata, 2.2. Updating the boardDatas/local storage,
+// 3. Attaching dragging feature, 4. Attaching the add-task-btn/input feature, 5. Erasing inputs fields,
+// 6.If not all the inputs provided, alert is provided.
 submitBoardDetailsBtn.addEventListener('click', e => {
   const bName = boardNameInput.value
   const bclass = bName.toLowerCase().replace(/\s+/g, '-')
   const desc = descriptionInput.value
   const selectedTheme = themeLabel.querySelector('.theme-active')
   const themeColor =
-    selectedTheme && selectedTheme.style.border.split(' ').slice(2).join('')
+    selectedTheme && selectedTheme.style.border.split(' ').slice(2).join('') // To get the color from the border style.
 
   if (bName.trim() && desc.trim() && themeColor.trim()) {
     const newBoardData = {
@@ -54,21 +61,20 @@ submitBoardDetailsBtn.addEventListener('click', e => {
       tasks: []
     }
     datas.push(newBoardData)
-    setLocalStorage(datas)
+    setLocalStorage(datas) // #Goto ./data.js line --> 39
 
-    const newBoard = createBoard(newBoardData)
+    const newBoard = createBoard(newBoardData) // #Goto ./createBoard.js line --> 21
     const addTaskBtn = newBoard.querySelector('.add-task-btn')
     const addTaskInput = newBoard.querySelector('.add-task-input')
 
-    addDragOver(newBoard)
-    addTaskBtnFeature(addTaskBtn)
-    addTaskInputFeature(addTaskInput)
+    addDragOver(newBoard) // #Goto ./helper.js line --> 4
+    addTaskBtnFeature(addTaskBtn) // #Goto ./addTasks.js line --> 14
+    addTaskInputFeature(addTaskInput) // #Goto ./addTasks.js line --> 30
 
     modal.style.display = 'none'
     boardNameInput.value = ''
     descriptionInput.value = ''
     selectedTheme.classList.remove('theme-active')
-    // console.log(newBoard)
   } else {
     alert('Please enter all the fields.')
   }
