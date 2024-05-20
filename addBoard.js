@@ -32,11 +32,29 @@ themes.forEach(color => {
 // To display the modal
 addBoardBtn.addEventListener('click', e => {
   modal.style.display = 'block'
+  boardNameInput.focus()
+})
+
+// To clear the entered datas in the modal inputs.
+const hiddingModelStyles = () => {
+  boardNameInput.value = ''
+  descriptionInput.value = ''
+  const selectedTheme = themeLabel.querySelector('.theme-active')
+  selectedTheme && selectedTheme.classList.remove('theme-active')
+
+  modal.style.display = 'none'
+}
+
+// To close the model on Escape key.
+document.addEventListener('keyup', e => {
+  if (e.key === 'Escape') {
+    hiddingModelStyles() // #Goto line --> 38
+  }
 })
 
 // To close the model
 modalCloseBtn.addEventListener('click', e => {
-  modal.style.display = 'none'
+  hiddingModelStyles()
 })
 
 // After submitting the details...
