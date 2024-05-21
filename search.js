@@ -36,3 +36,11 @@ const handleInput = e => {
 
 // Attaching debounce function to the input.
 searchInput.addEventListener('input', debounce(handleInput, 500))
+
+// To unFocus the search input.
+searchInput.addEventListener('keydown', e => {
+  if (e.key === 'Escape') {
+    searchInput.value = ''
+    searchInput.blur()
+  }
+})

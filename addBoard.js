@@ -35,6 +35,14 @@ addBoardBtn.addEventListener('click', e => {
   boardNameInput.focus()
 })
 
+// To open the modal with altKey + b.
+document.addEventListener('keydown', e => {
+  console.log(e.key)
+  if (e.altKey && e.key === 'b') {
+    addBoardBtn.click()
+  }
+})
+
 // To clear the entered datas in the modal inputs.
 const hiddingModelStyles = () => {
   boardNameInput.value = ''
@@ -49,6 +57,10 @@ const hiddingModelStyles = () => {
 document.addEventListener('keyup', e => {
   if (e.key === 'Escape') {
     hiddingModelStyles() // #Goto line --> 38
+  }
+  // Add board button through Enter key.
+  if (e.key === 'Enter' && modal.style.display === 'block') {
+    submitBoardDetailsBtn.click()
   }
 })
 
