@@ -124,7 +124,8 @@
   cursor: grab;
   margin: 0px 4px 8px 4px;
   background-color: rgb(39, 41, 44);
-  transition: transform 0.5s ease-in-out;
+  transition: top 0.4s ease-out, left 0.4s ease-out;
+  user-select: none;
 }
 
 .task p {
@@ -133,7 +134,7 @@
 
 /* --------##-------- */
 .is-dragging {
-  transform: rotate(10deg);
+  /* transform: rotate(10deg); */
   background-color: rgb(4, 10, 77);
 }
 
@@ -144,16 +145,18 @@
   color: gold;
 }
 
-.is-rendered {
-  background-color: pink;
-  color: pink;
+.snapshot {
+  background-color: rgb(13, 45, 81);
+  color: rgb(13, 45, 81);
   transform: rotate(0deg);
 }
-.is-rendered p {
-  background-color: pink;
-  color: pink;
+
+.snapshot p {
+  background-color: inherit;
+  color: inherit;
 }
-/* --------##-------- */
+
+/* ------------------ */
 
 .add-task-div {
   position: absolute;

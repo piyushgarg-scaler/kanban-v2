@@ -10,7 +10,7 @@ const addDraggable = el => {
 
       // To place some extra stylings to the dragged task after getting the reference.
       setTimeout(() => {
-        el.classList.add('is-rendered')
+        el.classList.add('snapshot')
       }, 0)
 
       const parent = el.parentElement.parentElement
@@ -29,7 +29,7 @@ const addDraggable = el => {
 
       // To remove styling from the dragged task after dropped.
       setTimeout(() => {
-        el.classList.remove('is-rendered')
+        el.classList.remove('snapshot')
       }, 0)
 
       const parent = el.parentElement.parentElement
