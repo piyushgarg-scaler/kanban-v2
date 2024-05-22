@@ -8,6 +8,7 @@ const addDraggable = el => {
     el.addEventListener('dragstart', e => {
       el.classList.add('is-dragging')
 
+      // To place some extra stylings to the dragged task after getting the reference.
       setTimeout(() => {
         el.classList.add('is-rendered')
       }, 0)
@@ -26,6 +27,7 @@ const addDraggable = el => {
     el.addEventListener('dragend', e => {
       el.classList.remove('is-dragging')
 
+      // To remove styling from the dragged task after dropped.
       setTimeout(() => {
         el.classList.remove('is-rendered')
       }, 0)
