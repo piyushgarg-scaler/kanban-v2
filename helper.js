@@ -7,6 +7,11 @@ const addDraggable = el => {
     // When dragged...
     el.addEventListener('dragstart', e => {
       el.classList.add('is-dragging')
+
+      setTimeout(() => {
+        el.classList.add('is-rendered')
+      }, 0)
+
       const parent = el.parentElement.parentElement
 
       // If the changeData doesn't has any data then we move into alterBoadData
@@ -20,6 +25,11 @@ const addDraggable = el => {
     // After dragging...
     el.addEventListener('dragend', e => {
       el.classList.remove('is-dragging')
+
+      setTimeout(() => {
+        el.classList.remove('is-rendered')
+      }, 0)
+
       const parent = el.parentElement.parentElement
       const nextEl = el.nextElementSibling // Getting the next task element
 
@@ -56,19 +66,21 @@ const alterBoardData = (el, boardEl, operation = 0, nextEl = '') => {
       const tasksList = board.tasks
       if (!operation) {
         // console.log('DELETE')
+
         const taskIdx = tasksList.indexOf(value)
         tasksList.splice(taskIdx, 1)
-        updateTaskCount(boardEl, board)
       } else if (operation === 1) {
         // console.log('APPEND');
+
         tasksList.push(value)
-        updateTaskCount(boardEl, board)
       } else {
         // console.log('NEED TO INSERT')
 
         const insertIdx = tasksList.indexOf(nextEl)
         tasksList.splice(insertIdx, 0, value)
       }
+      updateTaskCount(boardEl, board) // #Goto line --> 51
+
       setLocalStorage(datas) // #Goto ./data.js line --> 39
     }
   })

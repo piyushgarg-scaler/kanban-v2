@@ -50,6 +50,13 @@ const createBoard = board => {
   count.append(document.createTextNode(board.tasks.length))
   circleTitleDiv.appendChild(count)
 
+  if (board.delete) {
+    const delBtn = document.createElement('button')
+    delBtn.append(document.createTextNode('...'))
+    delBtn.classList.add('board-del-btn')
+    circleTitleDiv.appendChild(delBtn)
+  }
+
   const description = document.createElement('p')
   description.classList.add('description')
   description.append(document.createTextNode(board.description))

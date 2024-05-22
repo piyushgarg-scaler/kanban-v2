@@ -58,6 +58,33 @@
   align-items: center;
 }
 
+.board-del-btn {
+  color: rgb(142, 142, 142);
+
+  display: flex;
+  justify-content: center;
+
+  position: absolute;
+  right: 10px;
+  top: 4px;
+
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  font-weight: 700;
+
+  border-radius: 10px;
+  border: none;
+  letter-spacing: 4px;
+  padding: 0px 5px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.board-del-btn:hover {
+  color: white;
+}
+
 .board {
   position: relative;
   border: 1px solid rgb(109, 109, 109);
@@ -97,6 +124,7 @@
   cursor: grab;
   margin: 0px 4px 8px 4px;
   background-color: rgb(39, 41, 44);
+  transition: transform 0.5s ease-in-out;
 }
 
 .task p {
@@ -104,12 +132,24 @@
 }
 
 .is-dragging {
+  /* transform: rotate(10deg); */
   background-color: rgb(4, 10, 77);
 }
 
 .is-dragging P {
+  opacity: 1;
+
   background-color: rgb(4, 10, 77);
   color: gold;
+}
+
+.is-rendered {
+  background-color: pink;
+  color: pink;
+}
+.is-rendered p {
+  background-color: pink;
+  color: pink;
 }
 
 .add-task-div {
@@ -195,7 +235,7 @@
   right: 0px;
   bottom: 10px;
 
-  border: 1px solid white;
+  border: 1px solid rgb(162, 162, 162);
   cursor: pointer;
   font-size: 18px;
 

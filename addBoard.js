@@ -88,12 +88,13 @@ submitBoardDetailsBtn.addEventListener('click', e => {
       class: bclass,
       theme: themeColor,
       description: desc,
+      delete: true,
       tasks: []
     }
     datas.push(newBoardData)
     setLocalStorage(datas) // #Goto ./data.js line --> 39
 
-    const newBoard = createBoard(newBoardData) // #Goto ./createBoard.js line --> 21
+    const newBoard = createBoard(newBoardData, true) // #Goto ./createBoard.js line --> 21
     const addTaskBtn = newBoard.querySelector('.add-task-btn')
     const addTaskInput = newBoard.querySelector('.add-task-input')
 

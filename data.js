@@ -15,6 +15,7 @@ const boardDatas = [
     name: 'Todo',
     class: 'todo',
     theme: themes[0],
+    delete: false,
     description: "This item hasn't been started",
     tasks: []
   },
@@ -23,6 +24,7 @@ const boardDatas = [
     name: 'In Progress',
     class: 'in-progress',
     theme: themes[1],
+    delete: false,
     description: 'This is actively being worked on',
     tasks: []
   },
@@ -31,6 +33,7 @@ const boardDatas = [
     name: 'Done',
     class: 'done',
     theme: themes[2],
+    delete: false,
     description: 'This has been completed',
     tasks: []
   }
