@@ -4,38 +4,47 @@
     <link rel="stylesheet" href="style.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet">
     <title>Kanban</title>
   </head>
   <body>
     <div class="container">
+
       <div class="input-container">
         <input type="text" placeholder="Type your task" id="todo-input" />
-        <button id="create-todo-btn">Create</button>
+        <button class="btn" id="create-todo-btn">Create</button>
       </div>
       <div id="board-container" class="board-container">
+        
         <!-- Todo Board -->
         <div class="board todo-board" id="todo-board">
-          <h3>Todo</h3>
-
-          <div draggable="true" class="item">
-            <p>Make them Moveable</p>
+          <div class="board-header">
+            <div class="circle circle-green"></div>
+            <h3>Todo</h3>
           </div>
+          <p class="description">These tasks are not started</p>
         </div>
 
         <!-- Progress Board -->
         <div class="board progress-board" id="progress-board">
-          <h3>In Progress</h3>
+          <div class="board-header">
+            <div class="circle circle-orange"></div>
+            <h3>In Progress</h3>
+          </div>
+          <p class="description">These tasks are actively being worked on</p>
         </div>
 
         <!-- Complete Board -->
         <div class="board complete-board" id="complete-board">
-          <h3>Done</h3>
-          <div draggable="true" class="item">
-            <p>Make Items Draggable</p>
+          <div class="board-header">
+            <div class="circle circle-purple">
+            </div>
+            <h3>Done</h3>
           </div>
-          <div draggable="true" class="item">
-            <p>Add logic to create new task items</p>
-          </div>
+          <p class="description">These tasks are completed</p>
         </div>
       </div>
     </div>

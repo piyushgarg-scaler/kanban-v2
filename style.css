@@ -1,15 +1,22 @@
 * {
-  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
-  margin: 0px;
-  padding: 0px;
+  font-family: 'Montserrat', sans-serif;
+  margin: 0;
+  padding: 0;
+  font-size: 16px;
+
+}
+
+body {
+  font-size: 1rem;
+  background: linear-gradient(135deg, #121212, #282828);
 }
 
 .container {
-  padding: 20px;
+  padding: 1em;
 }
 
 .input-container {
-  margin: 10px 0px;
+  margin: 10px 0;
 }
 
 .input-container input {
@@ -18,25 +25,66 @@
 
 .board-container {
   display: flex;
+  justify-content: space-between;
+  margin-top: 1.5em;
   gap: 10px;
 }
 
 .board {
-  border: 1px solid lightgray;
+  background: #1e1e1e;
+  flex: 1;
+  border: 1px solid #333;
   border-radius: 10px;
-  padding: 5px;
+  padding: 1em;
   height: 80vh;
-  width: 200px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  margin-right: 1em;
+  
 }
 
-.board h3 {
-  text-align: center;
+.board:last-child {
+  margin-right: 0;
+}
+
+.board-header {
+  display: flex;
+  align-items: center;
   margin-bottom: 15px;
 }
 
+.circle {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  margin-right: 8px;
+  display: inline-block;
+}
+
+.circle-green{
+  border: 2px solid #4CAF50;
+}
+
+.circle-orange{
+  border: 2px solid orange;
+}
+
+.circle-purple{
+  border: 2px solid purple;
+}
+
+.board h3 {
+  font-size: 1.5rem;
+  text-align: left;
+}
+
+.board .description {
+  margin-top: 0.5em;
+  margin-bottom: 2em;
+}
+
 .item {
-  border: 1px solid lightgray;
+  background-color: #2a2a2a;
+  border: 1px solid #444;
   border-radius: 10px;
   padding: 5px;
   font-size: 14px;
@@ -44,8 +92,41 @@
   margin-bottom: 8px;
 }
 
+.item p {
+  padding: 0.25em;
+}
+
 .is-dragging {
-  border: 4px dashed lightgray;
-  background-color: black;
+  transform: scale(1.05);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+  opacity: 0.9;
+  background-color: #333;
   color: white;
+  transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
+}
+
+.btn {
+  display: inline-block;
+  padding: 1em 1.25em;
+  text-decoration: none;
+  background-color: #4CAF50;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.btn:hover {
+  background-color: #2d6530;
+}
+
+.btn:active {
+  background-color: #2d6530;
+}
+
+.input-container input {
+  padding: 0.925em;
+  font-size: 1rem;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+  width: 23%;
 }
