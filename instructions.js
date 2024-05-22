@@ -2,7 +2,7 @@ const instBtn = document.querySelector('.inst-btn')
 const instModal = document.querySelector('.inst-modal')
 
 document.addEventListener('keydown', e => {
-  if (e.altKey && e.key === 'i') {
+  if ((e.altKey || e.metaKey) && e.key === 'i') {
     instBtn.click()
   }
 })

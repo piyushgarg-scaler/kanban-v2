@@ -13,7 +13,7 @@ const addDraggable = el => {
       // Deleting the current task from the data
       if (!changeData) {
         changeData = el
-        alterBoardData(el, parent) // #Goto line --> 40
+        alterBoardData(el, parent) // #Goto line --> 47
       }
     })
 
@@ -21,10 +21,17 @@ const addDraggable = el => {
     el.addEventListener('dragend', e => {
       el.classList.remove('is-dragging')
       const parent = el.parentElement.parentElement
+      const nextEl = el.nextElementSibling // Getting the next task element
 
       // Adding the current task to the data
       if (changeData !== undefined) {
-        alterBoardData(changeData, parent, 1) // #Goto line --> 40
+        // If we have nextEl it means we are inserting the task inbetween
+        // Else we are just appending at the end.
+        if (nextEl) {
+          alterBoardData(changeData, parent, 2, nextEl.innerText) // #Goto line --> 47
+        } else {
+          alterBoardData(changeData, parent, 1) // #Goto line --> 47
+        }
         changeData = undefined
       }
     })
@@ -41,24 +48,26 @@ const updateTaskCount = (boardEl, board) => {
 // operation === 0, means "delete" task
 // operation === 1, means "append" task at the end
 // operation === 2, means "insert" task inBetween
-const alterBoardData = (el, boardEl, operation = 0) => {
+const alterBoardData = (el, boardEl, operation = 0, nextEl = '') => {
   const value = el.children[0].innerText
   const boardId = boardEl.className.split(' ')[0]
   datas.forEach(board => {
     if (board.class === boardId) {
+      const tasksList = board.tasks
       if (!operation) {
         // console.log('DELETE')
-
-        const taskIdx = board.tasks.indexOf(value)
-        board.tasks.splice(taskIdx, 1)
+        const taskIdx = tasksList.indexOf(value)
+        tasksList.splice(taskIdx, 1)
         updateTaskCount(boardEl, board)
       } else if (operation === 1) {
         // console.log('APPEND');
-
-        board.tasks.push(value)
+        tasksList.push(value)
         updateTaskCount(boardEl, board)
       } else {
-        console.log('NEED TO INSERT')
+        // console.log('NEED TO INSERT')
+
+        const insertIdx = tasksList.indexOf(nextEl)
+        tasksList.splice(insertIdx, 0, value)
       }
       setLocalStorage(datas) // #Goto ./data.js line --> 39
     }

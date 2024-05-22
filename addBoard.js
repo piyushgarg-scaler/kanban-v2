@@ -37,8 +37,8 @@ addBoardBtn.addEventListener('click', e => {
 
 // To open the modal with altKey + b.
 document.addEventListener('keydown', e => {
-  console.log(e.key)
-  if (e.altKey && e.key === 'b') {
+  // console.log(e.key)
+  if ((e.altKey || e.metaKey) && e.key === 'b') {
     addBoardBtn.click()
   }
 })

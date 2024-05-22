@@ -2,7 +2,7 @@ const searchInput = document.getElementById('search-input')
 
 // Focusing on the search input with "alt + s".
 document.addEventListener('keydown', e => {
-  if (e.altKey && e.key === 's') {
+  if ((e.altKey || e.metaKey) && e.key === 's') {
     searchInput.focus()
   }
 })
