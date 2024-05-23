@@ -1,56 +1,63 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="style.css" />
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
-      rel="stylesheet">
-    <title>Kanban</title>
-  </head>
-  <body>
-    <div class="container">
 
-      <div class="input-container">
+<head>
+  <link rel="stylesheet" href="style.css" />
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap"
+    rel="stylesheet">
+  <title>Kanban</title>
+</head>
+
+<body>
+  <div class="container">
+
+    <div class="input-container">
+      <div>
         <input type="text" placeholder="Type your task" id="todo-input" />
         <button class="btn" id="create-todo-btn">Create</button>
       </div>
-      <div id="board-container" class="board-container">
-        
-        <!-- Todo Board -->
-        <div class="board todo-board" id="todo-board">
-          <div class="board-header">
-            <div class="circle circle-green"></div>
-            <h3>Todo</h3>
-          </div>
-          <p class="description">These tasks are not started</p>
-        </div>
-
-        <!-- Progress Board -->
-        <div class="board progress-board" id="progress-board">
-          <div class="board-header">
-            <div class="circle circle-orange"></div>
-            <h3>In Progress</h3>
-          </div>
-          <p class="description">These tasks are actively being worked on</p>
-        </div>
-
-        <!-- Complete Board -->
-        <div class="board complete-board" id="complete-board">
-          <div class="board-header">
-            <div class="circle circle-purple">
-            </div>
-            <h3>Done</h3>
-          </div>
-          <p class="description">These tasks are completed</p>
-        </div>
-      </div>
     </div>
+    <div id="board-container" class="board-container">
 
-    <script src="storage.js"></script>
-    <script src="insert.js"></script>
-    <script src="board.js"></script>
-  </body>
+      <!-- Todo Board -->
+      <div class="board todo-board" id="todo-board">
+        <div class="board-header">
+          <div class="circle circle-green"></div>
+          <h3>Todo</h3>
+        </div>
+        <p class="description">These tasks are not started</p>
+      </div>
+
+      <!-- Progress Board -->
+      <div class="board progress-board" id="progress-board">
+        <div class="board-header">
+          <div class="circle circle-orange"></div>
+          <h3>In Progress</h3>
+        </div>
+        <p class="description">These tasks are actively being worked on</p>
+      </div>
+
+      <!-- Complete Board -->
+      <div class="board complete-board" id="complete-board">
+        <div class="board-header">
+          <div class="circle circle-purple"></div>
+          <h3>Done</h3>
+        </div>
+        <p class="description">These tasks are completed</p>
+      </div>
+
+      <!-- Add New Board Button -->
+      <button class="btn add-board-btn" id="add-board-btn">+</button>
+    </div>
+  </div>
+
+  <script src="storage.js"></script>
+  <script src="insert.js"></script>
+  <script src="board.js"></script>
+</body>
+
 </html>

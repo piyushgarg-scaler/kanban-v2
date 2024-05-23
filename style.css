@@ -1,3 +1,4 @@
+/* Global Styles */
 * {
   font-family: 'Montserrat', sans-serif;
   margin: 0;
@@ -11,18 +12,29 @@ body {
   background: linear-gradient(135deg, #121212, #282828);
 }
 
+/* Container Styles */
 .container {
   padding: 1em;
 }
 
+/* Input Styles */
 .input-container {
   margin: 10px 0;
 }
 
 .input-container input {
-  padding: 8px 10px;
+  padding: 0.925em;
+  font-size: 1rem;
+  border: 1px solid #4CAF50;
+  border-radius: 5px;
+  width: 23%;
 }
 
+#create-todo-btn {
+  padding: 1em 1.25em;
+}
+
+/* Board Container Styles */
 .board-container {
   display: flex;
   justify-content: space-between;
@@ -30,6 +42,7 @@ body {
   gap: 10px;
 }
 
+/* Board Styles */
 .board {
   background: #1e1e1e;
   flex: 1;
@@ -39,13 +52,13 @@ body {
   height: 80vh;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
   margin-right: 1em;
-  
 }
 
 .board:last-child {
   margin-right: 0;
 }
 
+/* Board Header Styles */
 .board-header {
   display: flex;
   align-items: center;
@@ -60,15 +73,16 @@ body {
   display: inline-block;
 }
 
-.circle-green{
+/* Circle Colors */
+.circle-green {
   border: 2px solid #4CAF50;
 }
 
-.circle-orange{
+.circle-orange {
   border: 2px solid orange;
 }
 
-.circle-purple{
+.circle-purple {
   border: 2px solid purple;
 }
 
@@ -82,6 +96,7 @@ body {
   margin-bottom: 2em;
 }
 
+/* Task Item Styles */
 .item {
   display: flex;
   justify-content: space-between;
@@ -98,6 +113,7 @@ body {
   padding: 0.25em;
 }
 
+/* Dragging Styles */
 .is-dragging {
   transform: scale(1.05);
   box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -107,6 +123,7 @@ body {
   transition: transform 0.2s ease, box-shadow 0.2s ease, opacity 0.2s ease, background-color 0.2s ease;
 }
 
+/* Button Styles */
 .btn {
   background-color: #4CAF50;
   display: inline-block;
@@ -114,15 +131,6 @@ body {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-}
-
-#create-todo-btn{
-  padding: 1em 1.25em;
-}
-
-.btn-delete-item{
-  padding: 0.25em 0.35em;
-  font-size: 0.75rem;
 }
 
 .btn:hover {
@@ -133,10 +141,21 @@ body {
   background-color: #2d6530;
 }
 
-.input-container input {
-  padding: 0.925em;
-  font-size: 1rem;
-  border: 1px solid #4CAF50;
-  border-radius: 5px;
-  width: 23%;
+.btn-delete-item {
+  padding: 0.25em 0.35em;
+  font-size: 0.75rem;
+}
+
+/* Add New Board Button */
+.add-board-btn {
+  width: 50px;
+  height: 50px;
+  font-size: 2rem;
+  background-color: #4CAF50;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  cursor: pointer;
 }
