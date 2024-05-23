@@ -146,8 +146,9 @@
 }
 
 .snapshot {
-  background-color: rgb(13, 45, 81);
-  color: rgb(13, 45, 81);
+  /* background-color: rgb(13, 45, 81); */
+  background-color: rgb(173, 82, 17);
+  color: rgb(173, 82, 17);
   transform: rotate(0deg);
 }
 
