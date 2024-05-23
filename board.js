@@ -1,3 +1,5 @@
+//Board.js
+
 const boards = document.querySelectorAll('.board');
 
 boards.forEach((board)=>{

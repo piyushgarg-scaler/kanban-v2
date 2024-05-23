@@ -1,10 +1,11 @@
+//Storage.js
 
 // Saves each board data to localstorage
 function saveToLocalStorage(){
     const boards = ['todo-board','progress-board','complete-board'];
     let boardData = {};
     boards.forEach((board)=>{
-        const items = [...document.querySelectorAll(`.${board} .item`)];
+        const items = [...document.querySelectorAll(`#${board} .item p`)];
         boardData[board] = items.map((item)=> item.textContent);
     })
     localStorage.setItem('boardData',JSON.stringify(boardData))

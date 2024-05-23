@@ -83,11 +83,13 @@ body {
 }
 
 .item {
+  display: flex;
+  justify-content: space-between;
   background-color: #2a2a2a;
   border: 1px solid #444;
   border-radius: 10px;
   padding: 5px;
-  font-size: 14px;
+  font-size: 1rem;
   cursor: pointer;
   margin-bottom: 8px;
 }
@@ -106,13 +108,21 @@ body {
 }
 
 .btn {
-  display: inline-block;
-  padding: 1em 1.25em;
-  text-decoration: none;
   background-color: #4CAF50;
+  display: inline-block;
+  text-decoration: none;
   border: none;
   border-radius: 5px;
   cursor: pointer;
+}
+
+#create-todo-btn{
+  padding: 1em 1.25em;
+}
+
+.btn-delete-item{
+  padding: 0.25em 0.35em;
+  font-size: 0.75rem;
 }
 
 .btn:hover {
