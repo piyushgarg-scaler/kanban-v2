@@ -87,3 +87,20 @@ const alterBoardData = (el, boardEl, operation = 0, nextEl = '') => {
     }
   })
 }
+
+const deleteBoard = btn => {
+  btn.addEventListener('click', e => {
+    const boardEl = e.target.parentElement.parentElement.parentElement
+    const confirmation = window.confirm(
+      `Do you want to delte the board >> "${boardEl.id}"`
+    )
+
+    if (confirmation) {
+      const boardIdx = datas.indexOf(boardEl.id)
+      datas.splice(boardIdx, 1)
+
+      boardEl.remove()
+      setLocalStorage(datas) // #Goto ./data.js line --> 42
+    }
+  })
+}
