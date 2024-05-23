@@ -24,9 +24,7 @@ window.addEventListener('click', e => {
   console.log()
 })
 
-
-
 // To delete the newly created board and updating the local storage.
 delBoardBtns.forEach(btn => {
-  deleteBoard(btn)
+  deleteBoard(btn) // #Goto ./helper.js line --> 91.
 })

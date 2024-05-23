@@ -88,6 +88,7 @@ const alterBoardData = (el, boardEl, operation = 0, nextEl = '') => {
   })
 }
 
+// Gives the functionality to the btn for deleting the board.
 const deleteBoard = btn => {
   btn.addEventListener('click', e => {
     const boardEl = e.target.parentElement.parentElement.parentElement

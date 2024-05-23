@@ -55,7 +55,7 @@ const createBoard = board => {
     delBtn.append(document.createTextNode('...'))
     delBtn.classList.add('board-del-btn')
     circleTitleDiv.appendChild(delBtn)
-    deleteBoard(delBtn)
+    deleteBoard(delBtn) // #Goto ./helper.js line --> 91
   }
 
   const description = document.createElement('p')
