@@ -2,14 +2,13 @@
 
 const createItemButton = document.getElementById('create-todo-btn');
 
-createItemButton.addEventListener('click',function(){
+function addItem(boardId,text){
     
-    const todoInput = document.querySelector('.input-container input');
-    const board = document.getElementById('todo-board');
+    const board = document.getElementById(boardId);
     
-    if(todoInput.value.trim() !== ''){
+    if(text.trim() !== ''){
         const div = document.createElement('div');
-        const itemValue = document.createTextNode(todoInput.value)
+        const itemValue = document.createTextNode(text)
 
         div.classList.add('item');
         div.setAttribute('draggable',true);
@@ -24,9 +23,17 @@ createItemButton.addEventListener('click',function(){
         })
 
         board.appendChild(div);
-        todoInput.value = '';
+        saveToLocalStorage();
     }else{
         alert('please enter input');
     }
 
+}
+
+createItemButton.addEventListener('click',()=>{
+    const todoInput = document.querySelector('.input-container input');
+    addItem('todo-board',todoInput.value);
+    todoInput.value = '';
 })
+
+window.addEventListener('load',loadItemsFromLocalStorage);
