@@ -6,13 +6,20 @@ items.forEach(item => {
   addDraggable(item) // #Goto ./helper.js line --> 4
 })
 
+// Attaching drag over listener to each of the boards to capture the dragged task.
+const constructDragOverToBoards = () => {
+  boards.forEach(board => {
+    addDragOver(board) // #Goto line --> 9
+  })
+}
+
 const addDragOver = board => {
   board.addEventListener('dragover', e => {
     e.preventDefault() // Without this the cursor will always be disabled.
 
     const taskEl = document.querySelector('.is-dragging')
     const taskConatainer = board.querySelector('.tasks-container')
-    const closestElement = getClosestElement(board, e.clientY) // #Goto line --> 23
+    const closestElement = getClosestElement(board, e.clientY) // #Goto line --> 32
 
     if (closestElement) {
       taskConatainer.insertBefore(taskEl, closestElement)
@@ -43,7 +50,4 @@ const getClosestElement = (board, yAxis) => {
   return closestEl
 }
 
-// Attaching drag over listener to each of the boards to capture the dragged task.
-boards.forEach(board => {
-  addDragOver(board) // #Goto line --> 9
-})
+constructDragOverToBoards() // #Goto line --> 9

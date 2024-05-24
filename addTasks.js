@@ -2,7 +2,7 @@ const addTaskBtns = document.querySelectorAll('.add-task-btn')
 const addTaskInputs = document.querySelectorAll('.add-task-input')
 const addTaskDivs = document.querySelectorAll('.add-task-div')
 
-// Resetting the styles for the inputs and buttons.
+// Resetting the styles for the add task inputs and buttons which is not currently targeted.
 const resetBtns = currBtn => {
   const Btns = document.querySelectorAll('.add-task-btn')
   Btns.forEach(btn => {
@@ -36,17 +36,21 @@ const addTaskInputFeature = input => {
     // You can get the value from the input thorugh "Enter" key
     if (e.key === 'Enter') {
       const value = e.target.value
-      const newTask = createTaskEl(value) // #Goto ./createBoard.js line --> 3
-      const board = e.target.parentElement.parentElement // Targeting the current board
+      if (value) {
+        const newTask = createTaskEl(value) // #Goto ./createBoard.js line --> 3
+        const board = e.target.parentElement.parentElement // Targeting the current board
 
-      //   This is to push the data.
-      alterBoardData(newTask, board, 1) // #Goto ./helper.js line --> 40
+        //   This is to push the data.
+        alterBoardData(newTask, board, 1) // #Goto ./helper.js line --> 40
 
-      const taskDiv = e.target.parentElement.previousElementSibling
-      taskDiv.appendChild(newTask)
+        const taskDiv = e.target.parentElement.previousElementSibling
+        taskDiv.appendChild(newTask)
 
-      input.value = ''
-      setLocalStorage(datas) // #Goto ./data.js line --> 39
+        input.value = ''
+        setLocalStorage(datas) // #Goto ./data.js line --> 39
+      } else {
+        alert('Please Enter your task details')
+      }
     }
     // Pressing Escape key to hide the input.
     if (e.key === 'Escape') {

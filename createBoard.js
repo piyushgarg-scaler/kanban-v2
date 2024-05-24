@@ -1,5 +1,12 @@
 const boardContainer = document.getElementById('board-container')
 
+// Looping through the boardDatas.
+const constructBoard = () => {
+  datas.forEach(data => {
+    createBoard(data) // #Goto line -->21
+  })
+}
+
 // To create the task element and attach the draggable function,
 const createTaskEl = el => {
   if (el.trim()) {
@@ -19,7 +26,7 @@ const createTaskEl = el => {
 }
 
 // To create the whole board.
-// ## Refer HTML for better understanding of this function.
+// ## Refer HTML for better understanding of this function. ##
 const createBoard = board => {
   // console.log('BOARD', board)
   const newBoard = document.createElement('div')
@@ -55,7 +62,7 @@ const createBoard = board => {
     delBtn.append(document.createTextNode('...'))
     delBtn.classList.add('board-del-btn')
     circleTitleDiv.appendChild(delBtn)
-    deleteBoard(delBtn) // #Goto ./helper.js line --> 91
+    deleteBoard(delBtn) // #Goto ./helper.js line --> 92
   }
 
   const description = document.createElement('p')
@@ -90,7 +97,4 @@ const createBoard = board => {
   return newBoard
 }
 
-// Looping through the boardDatas.
-datas.forEach(data => {
-  createBoard(data) // #Goto line -->21
-})
+constructBoard() // #Goto line --> 3

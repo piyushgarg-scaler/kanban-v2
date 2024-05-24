@@ -1,5 +1,3 @@
-const delBoardBtns = document.querySelectorAll('.board-del-btn')
-
 // Listening to double clicks,
 // If the double click has happen on the tasks, then we remove the element and updating the local storage.
 window.addEventListener('dblclick', e => {
@@ -18,13 +16,4 @@ window.addEventListener('dblclick', e => {
       parent.remove()
     }
   }
-})
-
-window.addEventListener('click', e => {
-  console.log()
-})
-
-// To delete the newly created board and updating the local storage.
-delBoardBtns.forEach(btn => {
-  deleteBoard(btn) // #Goto ./helper.js line --> 91.
 })
