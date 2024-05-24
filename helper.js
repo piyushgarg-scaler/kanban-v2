@@ -1,108 +1,108 @@
 // This variable is to get the current task which is being dragged.
-let changeData = undefined
+let changeData = undefined;
 
 // To add the draggable function the .task divs.
-const addDraggable = el => {
+const addDraggable = (el) => {
   if (el) {
     // When dragged...
-    el.addEventListener('dragstart', e => {
-      el.classList.add('is-dragging')
+    el.addEventListener("dragstart", (e) => {
+      el.classList.add("is-dragging");
 
       // To place some extra stylings to the dragged task after getting the reference.
       setTimeout(() => {
-        el.classList.add('snapshot')
-      }, 0)
+        el.classList.add("snapshot");
+      }, 0);
 
-      const boardEl = el.parentElement.parentElement
+      const boardEl = el.parentElement.parentElement;
 
       // If the changeData doesn't has any data then we move into alterBoadData
       // Deleting the current task from the data
       if (!changeData) {
-        changeData = el
-        alterBoardData(el, boardEl) // #Goto line --> 47
+        changeData = el;
+        alterBoardData(el, boardEl); //$ Goto line --> 47
       }
-    })
+    });
 
     // After dragging...
-    el.addEventListener('dragend', e => {
-      el.classList.remove('is-dragging')
+    el.addEventListener("dragend", (e) => {
+      el.classList.remove("is-dragging");
 
       // To remove styling from the dragged task after dropped.
       setTimeout(() => {
-        el.classList.remove('snapshot')
-      }, 0)
+        el.classList.remove("snapshot");
+      }, 0);
 
-      const boardEl = el.parentElement.parentElement
-      const nextEl = el.nextElementSibling // Getting the next task element
+      const boardEl = el.parentElement.parentElement;
+      const nextEl = el.nextElementSibling; // Getting the next task element
 
       // Adding the current task to the data
       if (changeData !== undefined) {
         // If we have nextEl it means we are inserting the task inbetween
         // Else we are just appending at the end.
         if (nextEl) {
-          alterBoardData(changeData, boardEl, 2, nextEl.innerText) // #Goto line --> 47
+          alterBoardData(changeData, boardEl, 2, nextEl.innerText); //$ Goto line --> 47
         } else {
-          alterBoardData(changeData, boardEl, 1) // #Goto line --> 47
+          alterBoardData(changeData, boardEl, 1); //$ Goto line --> 47
         }
-        changeData = undefined
+        changeData = undefined;
       }
-    })
+    });
   }
-}
+};
 
 // To update the task count in the boards.
 const updateTaskCount = (boardEl, board) => {
-  const count = boardEl.querySelector('.count')
-  count.innerText = board.tasks.length
-}
+  const count = boardEl.querySelector(".count");
+  count.innerText = board.tasks.length;
+};
 
 // This is multitasking function
 // operation === 0, means "delete" task
 // operation === 1, means "append" task at the end
 // operation === 2, means "insert" task inBetween
-const alterBoardData = (el, boardEl, operation = 0, nextEl = '') => {
-  if (!el) return
-  const value = el.children[0].innerText
-  const boardId = boardEl.className.split(' ')[0]
-  datas.forEach(board => {
+const alterBoardData = (el, boardEl, operation = 0, nextEl = "") => {
+  if (!el) return;
+  const value = el.children[0].innerText;
+  const boardId = boardEl.className.split(" ")[0];
+  datas.forEach((board) => {
     if (board.class === boardId) {
-      const tasksList = board.tasks
+      const tasksList = board.tasks;
       if (!operation) {
         // DELETE
 
-        const taskIdx = tasksList.indexOf(value)
-        tasksList.splice(taskIdx, 1)
+        const taskIdx = tasksList.indexOf(value);
+        tasksList.splice(taskIdx, 1);
       } else if (operation === 1) {
         // APPEND
 
-        tasksList.push(value)
+        tasksList.push(value);
       } else {
         // NEED TO INSERT
 
-        const insertIdx = tasksList.indexOf(nextEl)
-        tasksList.splice(insertIdx, 0, value)
+        const insertIdx = tasksList.indexOf(nextEl);
+        tasksList.splice(insertIdx, 0, value);
       }
-      updateTaskCount(boardEl, board) // #Goto line --> 51
+      updateTaskCount(boardEl, board); //$ Goto line --> 51
 
-      setLocalStorage(datas) // #Goto ./data.js line --> 39
+      setLocalStorage(datas); //$ Goto ./data.js line --> 39
     }
-  })
-}
+  });
+};
 
 // Gives the functionality to the btn for deleting the board.
-const deleteBoard = btn => {
-  btn.addEventListener('click', e => {
-    const boardEl = e.target.parentElement.parentElement.parentElement
+const deleteBoard = (btn) => {
+  btn.addEventListener("click", (e) => {
+    const boardEl = e.target.parentElement.parentElement.parentElement;
     const confirmation = window.confirm(
       `Do you want to delte the board >> "${boardEl.id}"`
-    )
+    );
 
     if (confirmation) {
-      const boardIdx = datas.indexOf(boardEl.id)
-      datas.splice(boardIdx, 1)
+      const boardIdx = datas.indexOf(boardEl.id);
+      datas.splice(boardIdx, 1);
 
-      boardEl.remove()
-      setLocalStorage(datas) // #Goto ./data.js line --> 42
+      boardEl.remove();
+      setLocalStorage(datas); //$ Goto ./data.js line --> 42
     }
-  })
-}
+  });
+};
