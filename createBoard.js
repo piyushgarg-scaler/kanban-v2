@@ -3,7 +3,7 @@ const boardContainer = document.getElementById("board-container");
 //* Looping through the boardDatas.
 const constructBoard = () => {
   datas.forEach((data) => {
-    createBoard(data); //$ Goto line -->21
+    createBoard(data); //$ Goto line -->30
   });
 };
 

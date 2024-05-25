@@ -28,9 +28,7 @@ const addDraggable = (el) => {
       el.classList.remove("is-dragging");
 
       // To remove styling from the dragged task after dropped.
-      setTimeout(() => {
-        el.classList.remove("snapshot");
-      }, 0);
+      el.classList.remove("snapshot");
 
       const boardEl = el.parentElement.parentElement;
       const nextEl = el.nextElementSibling; // Getting the next task element
