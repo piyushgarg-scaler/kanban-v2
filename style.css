@@ -2,18 +2,15 @@
   font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
   margin: 0px;
   padding: 0px;
+  background-color: rgb(21, 24, 28);
+  color: white;
 }
 
 .container {
   padding: 20px;
-}
-
-.input-container {
-  margin: 10px 0px;
-}
-
-.input-container input {
-  padding: 8px 10px;
+  display: flex;
+  gap: 10px;
+  width: fit-content;
 }
 
 .board-container {
@@ -21,31 +18,281 @@
   gap: 10px;
 }
 
+.title-div {
+  display: flex;
+  flex-direction: column;
+}
+
+.circle-title {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin: 0px;
+  height: 32px;
+}
+
+.description {
+  margin: 0px;
+  padding: 0px;
+  color: rgb(147, 147, 147);
+  font-size: 14px;
+}
+
+.circle {
+  width: 16px;
+  height: 16px;
+  border: 3px solid rgb(18, 180, 15);
+  border-radius: 50%;
+}
+
+.count {
+  background-color: rgb(62, 60, 60);
+  border-radius: 50%;
+
+  width: 20px;
+  height: 20px;
+  font-size: 12px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.board-del-btn {
+  color: rgb(142, 142, 142);
+
+  display: flex;
+  justify-content: center;
+
+  position: absolute;
+  right: 10px;
+  top: 4px;
+
+  height: 30px;
+  width: 30px;
+  font-size: 20px;
+  font-weight: 700;
+
+  border-radius: 10px;
+  border: none;
+  letter-spacing: 4px;
+  padding: 0px 5px;
+  margin: 0;
+  cursor: pointer;
+}
+
+.board-del-btn:hover {
+  color: white;
+}
+
 .board {
-  border: 1px solid lightgray;
+  position: relative;
+  border: 1px solid rgb(109, 109, 109);
   border-radius: 10px;
   padding: 5px;
   height: 80vh;
-  width: 200px;
+  width: 300px;
   box-shadow: rgba(149, 157, 165, 0.2) 0px 8px 24px;
+  overflow: hidden;
 }
 
-.board h3 {
-  text-align: center;
-  margin-bottom: 15px;
+.tasks-container {
+  margin-top: 14px;
+  height: 75%;
+  overflow: auto;
 }
 
-.item {
-  border: 1px solid lightgray;
-  border-radius: 10px;
-  padding: 5px;
+.tasks-container::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(82, 82, 82, 0.3);
+  background-color: #f5f5f5;
+}
+
+.tasks-container::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+
+.tasks-container::-webkit-scrollbar-thumb {
+  background-color: #6c6c6c;
+}
+
+.task {
+  border: 1px solid rgb(101, 101, 101);
+  border-radius: 8px;
+  padding: 10px 5px;
   font-size: 14px;
-  cursor: pointer;
-  margin-bottom: 8px;
+  cursor: grab;
+  margin: 0px 4px 8px 4px;
+  background-color: rgb(39, 41, 44);
+  transition: top 0.4s ease-out, left 0.4s ease-out;
+  user-select: none;
 }
 
+.task p {
+  background-color: rgb(39, 41, 44);
+}
+
+/* --------##-------- */
 .is-dragging {
-  border: 4px dashed lightgray;
-  background-color: black;
+  /* transform: rotate(10deg); */
+  background-color: rgb(4, 10, 77);
+}
+
+.is-dragging P {
+  opacity: 1;
+
+  background-color: rgb(4, 10, 77);
+  color: gold;
+}
+
+.snapshot {
+  background-color: rgb(173, 82, 17);
+  color: rgb(173, 82, 17);
+  transform: rotate(0deg);
+}
+
+.snapshot p {
+  background-color: inherit;
+  color: inherit;
+}
+
+/* ------------------ */
+
+.add-task-div {
+  position: absolute;
+  bottom: 6px;
+  width: 100%;
+}
+
+.add-task-btn {
+  cursor: pointer;
+  border: none;
+  background-color: inherit;
+  padding: 8px 4px;
+  color: rgb(147, 147, 147);
+  width: 96%;
+  text-align: left;
+}
+
+.add-task-btn:hover {
+  background-color: rgb(43, 43, 43);
+  border-radius: 4px;
+}
+
+.add-task-input {
+  display: none;
+  outline: none;
+  width: 87%;
+  border: none;
+  cursor: pointer;
+  padding: 10px;
+  background-color: rgb(41, 41, 41);
+  border-radius: 10px;
   color: white;
+}
+
+.add-task-input:focus {
+  border: 2px solid rgb(21, 21, 70);
+}
+
+.search {
+  margin-left: 20px;
+  position: fixed;
+  left: 0;
+}
+
+#search-input {
+  width: 500px;
+  padding: 10px;
+  border-radius: 10px;
+  border: none;
+  outline: 1px solid rgb(115, 174, 227);
+}
+
+#search-input:focus {
+  outline: 1px solid rgb(33, 119, 195);
+}
+
+#search-input::placeholder {
+  font-weight: 700;
+  color: white;
+  font-size: 14px;
+}
+
+.dummy {
+  margin-left: 22px;
+  background-color: transparent;
+}
+
+.inst-div {
+  position: fixed;
+  bottom: 30px;
+  right: 20px;
+  z-index: 1;
+}
+
+.inst-btn {
+  padding: 10px;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
+  position: absolute;
+  right: 0px;
+  bottom: 10px;
+
+  border: 1px solid rgb(162, 162, 162);
+  cursor: pointer;
+  font-size: 18px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.inst-modal {
+  display: none;
+  position: relative;
+  bottom: 260px;
+  height: 10px;
+  background-color: inherit;
+  border-radius: 10px 10px 0px 0px;
+}
+
+.inst-modal > ul {
+  border-radius: 10px;
+
+  list-style: none;
+  position: relative;
+  top: 10px;
+  overflow-y: scroll;
+  height: 200px;
+}
+
+.inst-modal > ul::-webkit-scrollbar-track {
+  -webkit-box-shadow: inset 0 0 6px rgba(82, 82, 82, 0.3);
+  background-color: #f5f5f5;
+}
+
+.inst-modal > ul::-webkit-scrollbar {
+  width: 6px;
+  background-color: #f5f5f5;
+}
+
+.inst-modal > ul::-webkit-scrollbar-thumb {
+  background-color: #6c6c6c;
+}
+
+.inst-modal > ul > li {
+  background-color: inherit;
+  padding: 4px 10px;
+  color: inherit;
+}
+
+b {
+  padding: 4px;
+}
+
+.inst-btn:hover {
+  background-color: rgb(43, 43, 43);
 }

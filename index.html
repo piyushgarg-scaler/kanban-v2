@@ -2,45 +2,122 @@
 <html lang="en">
   <head>
     <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="modelStyle.css" />
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Kanban</title>
   </head>
   <body>
     <div class="container">
-      <div class="input-container">
-        <input type="text" placeholder="Type your task" id="todo-input" />
-        <button id="create-todo-btn">Create</button>
-      </div>
       <div id="board-container" class="board-container">
-        <!-- Todo Board -->
-        <div class="board todo-board" id="todo-board">
-          <h3>Todo</h3>
+        <!--$ Board -->
 
-          <div draggable="true" class="item">
-            <p>Make them Moveable</p>
+        <!-- <div class="board todo" id="todo">
+          <div class="title-div">
+            <div class="circle-title">
+              <div class="circle"></div>
+              <h3 id="title">Todo</h3>
+              <p class="count">0</p>
+              <button class="board-del-btn">...</button>
+            </div>
+            <p class="description">This is description</p>
           </div>
+
+          <div id="tasks-container">
+            <div draggable="true" class="task">
+              <p>Make them Moveable</p>
+            </div>
+          </div>
+
+          <div id="add-task-div">
+            <button id="add-task-btn">+ Add item</button>
+
+            <input
+              id="add-task-input"
+              type="text"
+              placeholder="Enter task details.."
+            />
+          </div>
+        </div> -->
+      </div>
+      <div class="add-board-container">
+        <button class="add-board-btn">+</button>
+      </div>
+    </div>
+
+    <div class="modal" id="modal">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h2>Add board</h2>
+          <span class="close" id="close">&times;</span>
         </div>
 
-        <!-- Progress Board -->
-        <div class="board progress-board" id="progress-board">
-          <h3>In Progress</h3>
-        </div>
+        <div class="modal-body">
+          <!-- <label for="board-name">Board Name</label> -->
+          <input
+            type="text"
+            id="board-name"
+            name="board-name"
+            placeholder="Enter the board name"
+          />
 
-        <!-- Complete Board -->
-        <div class="board complete-board" id="complete-board">
-          <h3>Done</h3>
-          <div draggable="true" class="item">
-            <p>Make Items Draggable</p>
-          </div>
-          <div draggable="true" class="item">
-            <p>Add logic to create new task items</p>
-          </div>
+          <input
+            type="text"
+            id="board-description"
+            name="board-description"
+            placeholder="Give description"
+            required
+          />
+
+          <label id="theme-label" for="board-theme"
+            >Choose a theme:
+            <!-- <div class="circle circle-theme" style="border: 3px solid selected-theme-color;"></div> -->
+          </label>
+
+          <button class="submit-board-details" id="submit-board-details">
+            Add
+          </button>
         </div>
       </div>
     </div>
 
-    <script src="insert.js"></script>
+    <div class="search">
+      <input type="text" id="search-input" placeholder="Search for tasks" />
+    </div>
+
+    <div class="inst-div">
+      <div class="inst-modal">
+        <ul>
+          <li><b>1. Instruction Tab: </b></li>
+          <li>alt + i --> open/close instructions modal</li>
+
+          <li><b>2. Add board Modal: </b></li>
+          <li>alt + b --> open add board modal</li>
+          <li>Enter --> enter add board details</li>
+          <li>Escape --> Exit the modal</li>
+
+          <li><b>3. search: </b></li>
+          <li>alt + s --> focus the input</li>
+          <li>Escape --> blur the input</li>
+
+          <li><b>4. Task: </b></li>
+          <li>double click --> to delete the task</li>
+        </ul>
+      </div>
+      <button class="inst-btn">?</button>
+    </div>
+
+    <!-- utiliy functions -->
+    <script src="helper.js"></script>
+
+    <!--  -->
+    <script src="data.js"></script>
+    <script src="createBoard.js"></script>
     <script src="board.js"></script>
+    <script src="addTasks.js"></script>
+    <script src="deleteTasks.js"></script>
+    <script src="search.js"></script>
+    <script src="addBoard.js"></script>
+    <script src="instructions.js"></script>
   </body>
 </html>

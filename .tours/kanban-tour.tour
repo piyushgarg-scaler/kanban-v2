@@ -1,0 +1,76 @@
+{
+  "$schema": "https://aka.ms/codetour-schema",
+  "title": "KanBan Tour",
+  "steps": [
+    {
+      "file": "kanban-clone/data.js",
+      "description": "Step 1: This is where the datas is been checked from the localstorage and being fetched else injected into the localStorage.",
+      "line": 50
+    },
+    {
+      "file": "kanban-clone/createBoard.js",
+      "description": "Step 2: Here we constructs the boards from the \"datas\".",
+      "line": 100
+    },
+    {
+      "file": "kanban-clone/createBoard.js",
+      "description": "Step 3: Here we create the separate tasks element.",
+      "line": 11
+    },
+    {
+      "file": "kanban-clone/createBoard.js",
+      "description": "Step 4: This attaches the draggable property to the tasks. Also the placeholder stylings.",
+      "line": 17
+    },
+    {
+      "file": "kanban-clone/helper.js",
+      "description": "Here we are attaching a placeholder stylings after the task been dragged.",
+      "line": 12
+    },
+    {
+      "file": "kanban-clone/helper.js",
+      "description": "Step 5: Here we Delete, Append and insert the tasks in the datas array.\r\n        If 1. Operation == 0 - Delete.\r\n           2. Operation == 1 - Append.\r\n           3. Operation == 2 - Insert.",
+      "line": 61
+    },
+    {
+      "file": "kanban-clone/addTasks.js",
+      "description": "Step 6: The event listener is attached to the add item buttons in every board. To toggle the input and the button.",
+      "line": 30
+    },
+    {
+      "file": "kanban-clone/addTasks.js",
+      "description": "Step 7: Here we get the value from the user and create a new task element, update the DOM and the datas array.",
+      "line": 64
+    },
+    {
+      "file": "kanban-clone/board.js",
+      "description": "Step 8: To attach the drag over litener to the boards so that each board can listen to the dragged over tasks through it.",
+      "line": 10
+    },
+    {
+      "file": "kanban-clone/deleteTasks.js",
+      "description": "Step 9: To delete the tasks we can double click over them.",
+      "line": 3
+    },
+    {
+      "file": "kanban-clone/search.js",
+      "description": "Step 10: To search for a task we are making a debouncing of 500ms for better performance.",
+      "line": 38
+    },
+    {
+      "file": "kanban-clone/addBoard.js",
+      "description": "Here we are creating a small circle div for selecting the theme for the board inside the add board modal.",
+      "line": 11
+    },
+    {
+      "file": "kanban-clone/addBoard.js",
+      "description": "After entering add button inside the modal, \r\n    1. we create a new board data and push into the datas array.\r\n    2. update the localStorage.\r\n    3. Create a new board element.\r\n    4. Attach the drag over functionality to the board element.\r\n    5. The add-task-btn and add-task-input listener is also attached.",
+      "line": 76
+    },
+    {
+      "file": "kanban-clone/helper.js",
+      "description": "Finally we can also detele the new boards that we created, For this there is a flag \"delete\" in the datas array which is true for the newly created boards.",
+      "line": 91
+    }
+  ]
+}
